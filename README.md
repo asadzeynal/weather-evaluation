@@ -1,86 +1,75 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# Weather Evaluation Project
 
-## About Laravel
+  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This SPA app displays current weather in Baku, Azerbaijan as well as current time.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Deployed version: <a  href="http://wthreval.herokuapp.com">App</a>
 
-## Learning Laravel
+  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Getting Started
+  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Prerequisites
 
-## Laravel Sponsors
+  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+The easiest way to run the application is by setting up <a  href="https://laravel.com/docs/7.x/homestead">Laravel Homestead</a> vagrant box.
 
-### Premium Partners
+If you decide not to use Homestead, you can run a project locally as a regular laravel app.  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
+For your comfort, the project has already been deployed and the link is included above.
 
-### Community Sponsors
+This project does not require any database. 
+  
 
-<a href="https://op.gg"><img src="http://opgg-static.akamaized.net/icon/t.rectangle.png" width="150"></a>
 
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [云软科技](http://www.yunruan.ltd/)
 
-## Contributing
+## Project Details
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+The project was initially scaffolded using the laravel/ui package.
+### AdminLTE 3
+ AdminLTE theme was applied through <a href="https://github.com/jeroennoten/Laravel-AdminLTE">jeroennoten/laravel-adminlte</a> package, which provides a nice interface for AdminLTE components and styles to be used in blade templates.  
 
-## Code of Conduct
+### ChartJS
+<a href="https://www.chartjs.org/">ChartJS</a> is a highly functional tool for displaying charts using JS. It was used to draw a line chart of the weekly weather forecasts.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Vue js
+Vue components were heavily used in the project. There are 4 of them in total. WeatherComponent and TimeComponent are called in the root template directly. Weather components uses LineChart and CurrentWeather components in itself. LineChart extends the Line component from ChartJS. Such separation gives the code high reusability.
 
-## Security Vulnerabilities
+### API Calls
+APIs used are: 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ - <a href="https://openweathermap.org">Open Weather</a>
+ - <a href="https://worldtimeapi.org">World Time API</a>
 
-## License
+Open Weather gives users many free and paid APIs for different purposes. For this project <a href="https://openweathermap.org/api/one-call-api">One Call API</a> was used, as it provides forecast data in addition to current weather.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# weather-evaluation
+Requests are made using Axios library. Weather data is fetched once on mount of the component, however the time data is fetched every second.
+
+#### CORS
+As both APIs block cross-origin requests, it was not possible to directly call them from client side using axios (except if https://cors-anywhere.herokuapp.com/ was prepended to the url, which is not a very elegant and reliable solution). Considering that, the client requests the backend, which fetches data from the apis and returns it to the client side.
+  
+
+## Built With
+
+ 
+*  [Laravel](https://laravel.com/) - The web framework used
+
+*  [Vue](https://vuejs.org/) - Frontend JS framework
+  
+
+## Authors
+
+  
+
+*  **Asad Zeynalov**
+
+## Acknowledgments
+
+  
+Thanks to thousands of stackoverflow users, whose answers were so useful when writing this app.
