@@ -61,6 +61,8 @@ As both APIs block cross-origin requests, it was not possible to directly call t
 *  [Laravel](https://laravel.com/) - The web framework used
 
 *  [Vue](https://vuejs.org/) - Frontend JS framework
+* [Bootstrap](https://getbootstrap.com/) - Frontend toolkit
+
   
 
 ## Authors
